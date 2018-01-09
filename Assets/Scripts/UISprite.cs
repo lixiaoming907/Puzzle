@@ -84,7 +84,7 @@ public class UISprite : MonoBehaviour, IPointerClickHandler
     public void StopAllAnimation()
     {
         StopAllCoroutines();
-        ToggleSelectState();
+        isSelect = false;
         transform.localScale = Vector3.one;
     }
 

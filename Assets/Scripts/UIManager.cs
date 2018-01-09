@@ -15,8 +15,9 @@ public class UIManager : MonoBehaviour
     public Transform[] animationPosesTrans;
     public Transform imagesParent;
     public Transform transformParent;
-
     public Texture gameImage;
+
+    public string[] imagesPath;
 
     private UISprite[] images;
     private Transform[] spritesTransform;
@@ -44,7 +45,8 @@ public class UIManager : MonoBehaviour
     {
         images = new UISprite[horizontalNum * verticalNum];
         spritesTransform = new Transform[horizontalNum * verticalNum];
-        gameImage = Resources.Load<Texture>("Textures/huoxingzai");
+        int imageIndex = Random.Range(0, imagesPath.Length);
+        gameImage = Resources.Load<Texture>(imagesPath[imageIndex]);
         SpriteEditor(horizontalNum, verticalNum);
     }
 
@@ -146,9 +148,12 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator PlayInitAnimation(SripteData[] sriptesDatas)
     {
+        int index = 0;
         for (int i = 0; i < images.Length; i++)
         {
-            images[i].Move(animationPosesTrans[i], 1, null);
+            index ++;
+            index %= animationPosesTrans.Length;
+            images[i].Move(animationPosesTrans[index], 1, null);
         }
         yield return new WaitForSeconds(2);
 

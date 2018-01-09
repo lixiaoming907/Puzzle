@@ -62,6 +62,17 @@ public class BtnsEvent : MonoBehaviour
         //go.transform.SetParent(transform.parent.parent);
         go.transform.localScale = Vector3.one;
         Invoke("ActiveLoadGameScenePanel", 0.5f);
+        StartCoroutine(AudioChanged());
+    }
+
+    private IEnumerator AudioChanged()
+    {
+        while (true)
+        {
+            Camera.main.GetComponent<AudioSource>().volume = Mathf.MoveTowards  (Camera.main.GetComponent<AudioSource>().volume, 0, 0.01f);
+
+            yield return 0;
+        }
     }
 
     private void ActiveLoadGameScenePanel()

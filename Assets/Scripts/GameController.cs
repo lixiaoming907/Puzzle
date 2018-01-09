@@ -113,6 +113,17 @@ public class GameController : MonoBehaviour
         UIManager._instance.RemoveDelegate();
         Instantiate(blackImage, GameObject.Find("Canvas").transform);
         Invoke("ActiveLoadScenePanel", 0.5f);
+        StartCoroutine(AudioChanged());
+    }
+
+    private IEnumerator AudioChanged()
+    {
+        while (true)
+        {
+            Camera.main.GetComponent<AudioSource>().volume = Mathf.MoveTowards(Camera.main.GetComponent<AudioSource>().volume, 0, 0.01f);
+
+            yield return 0;
+        }
     }
 
     private void ActiveLoadScenePanel()

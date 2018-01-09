@@ -41,16 +41,16 @@ public class DataManager
         switch (difficultLevel)
         {
             case 1:
-                horizontalNum = 4;
-                verticalNum = 4;
-                break;
-            case 2:
                 horizontalNum = 5;
                 verticalNum = 5;
                 break;
-            case 3:
+            case 2:
                 horizontalNum = 6;
                 verticalNum = 6;
+                break;
+            case 3:
+                horizontalNum = 8;
+                verticalNum = 8;
                 break;
         }
 

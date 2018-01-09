@@ -307,6 +307,7 @@
     <Compile Include="Assets\Scripts\LoadLauncher.cs" />
     <Compile Include="Assets\Scripts\SripteData.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
+    <Compile Include="Assets\Scripts\TipBtn.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\UISprite.cs" />
   </ItemGroup>
